@@ -1,0 +1,23 @@
+{
+	"globals": {
+		"account": "1234567890",
+		"appName": "sample-app",
+		"appDescription": "A simple description",
+		"github": {
+			"username": "username",
+			"repo": "sample-repo"
+		}
+	},
+	"environments": [
+		{
+			"stage": "prod",
+			"branchName": "main",
+			"region": "us-east-2"
+		},
+		{
+			"stage": "dev",
+			"branchName": "develop",
+			"region": "us-east-1"
+		}
+	]
+}
