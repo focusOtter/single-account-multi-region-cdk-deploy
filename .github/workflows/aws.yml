@@ -31,23 +31,11 @@ jobs:
       - name: Assume role using OIDC
         uses: aws-actions/configure-aws-credentials@master
         with:
-          role-to-assume: arn:aws:iam::842537737558:role/trip-logger-github-ci-role
+          role-to-assume: arn:aws:iam::1234567890:role/trip-logger-github-ci-role
           aws-region: us-east-1
 
       - name: cdk diff
         run: npx aws-cdk diff
 
       - name: cdk deploy
-        run: npx aws-cdk deploy --all
-
-      # - name: Trigger Amplify Build
-      #   run: |
-      #     if [ "${{ github.event_name }}" == "push" ] && [ "${{ github.ref }}" == "refs/heads/develop" ]; then
-      #       WEBHOOK_URL="${{ secrets.DEVELOP_WEBHOOK_URL }}"
-      #     elif [ "${{ github.event_name }}" == "pull_request" ] && [ "${{ github.event.pull_request.merged }}" == "true" ]; then
-      #       WEBHOOK_URL="${{ secrets.MAIN_WEBHOOK_URL }}"
-      #     fi
-
-      #     if [ ! -z "${WEBHOOK_URL}" ]; then
-      #       curl -X POST -d {} "${WEBHOOK_URL}" -H "Content-Type:application/json"
-      #     fi
+        run: npx aws-cdk deploy --exclusively AppStack
