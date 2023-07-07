@@ -32,12 +32,12 @@ export class DeployGitHubRoleStack extends cdk.Stack {
 			}
 		)
 
-		new Role(this, 'GitHubActionsRole', {
+		const gitHubActionsRole = new Role(this, 'GitHubActionsRole', {
 			assumedBy: GitHubPrincipal,
 			description:
 				'Role assumed by GitHubPrincipal for deploying from CI using aws cdk',
 			// this name is what gets referenced in the github action
-			roleName: `${context?.appName}-github-ci-role`,
+			roleName: `${context?.github.repo}-github-ci-role`,
 			maxSessionDuration: cdk.Duration.hours(1),
 			inlinePolicies: {
 				CdkDeploymentPolicy: new PolicyDocument({
@@ -51,6 +51,10 @@ export class DeployGitHubRoleStack extends cdk.Stack {
 					],
 				}),
 			},
+		})
+
+		new cdk.CfnOutput(this, 'GitHubActionsRoleArn', {
+			value: gitHubActionsRole.roleArn,
 		})
 	}
 }

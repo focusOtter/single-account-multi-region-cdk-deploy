@@ -31,7 +31,7 @@ jobs:
       - name: Assume role using OIDC
         uses: aws-actions/configure-aws-credentials@master
         with:
-          role-to-assume: arn:aws:iam::1234567890:role/trip-logger-github-ci-role
+          role-to-assume: arn:aws:iam::1234567890:role/REPO-NAME-github-ci-role
           aws-region: us-east-1
 
       - name: cdk diff
