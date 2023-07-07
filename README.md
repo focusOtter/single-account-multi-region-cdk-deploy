@@ -1,4 +1,5 @@
 # AWS CDK Deployments: Single Account, Multi-Region Starter
+![Screenshot 2023-07-06 at 8 05 33 PM](https://github.com/focusOtter/single-account-multi-region-cdk-deploy/assets/5106417/d92dd143-401b-427f-bac3-253e80415b51)
 
 AWS says it's a best practice to use SSO, deploy to multiple accounts, each account have different resources across different regions, use IaC etc...but let's face it, not everyone is there yet.
 
