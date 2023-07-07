@@ -10,7 +10,7 @@ The purpose of this repo is to showcase how to deploy your CDK application to a 
 
 This project uses Github Actions to deploy your application. However, instead of storing an AWS Access Key and Secret Key as a GitHub secret, GitHub is setup as a trusted OIDC provider.
 
-0. Setup an AWS account
+0. [Setup an AWS account](https://youtu.be/FAfhMXUiLuU) and [secure it](https://youtu.be/UnqxiSJEZAk)
 1. Install the AWS CDK (or use `npx`)
 2. Bootstrap the regions you want to use: `npx aws-cdk bootstrap`
 3. [Setup GitHub as an OIDC provider](https://github.com/focusOtter/github-aws-oidc-provider-cdk)
